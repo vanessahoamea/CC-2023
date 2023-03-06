@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
     }
     else if(req.url == "/users" || req.url == "/users/")
     {
-        if(req.method == "POST" || req.method == "PUT" || req.method == "DELETE")
+        if(req.method == "PUT" || req.method == "PATCH" || req.method == "DELETE")
         {
             res.statusCode = 400;
             res.write(JSON.stringify({
@@ -275,7 +275,7 @@ const server = http.createServer((req, res) => {
     }
     else if(req.url == "/posts" || req.url == "/posts/")
     {
-        if(req.method == "POST" || req.method == "PUT" || req.method == "DELETE")
+        if(req.method == "DELETE")
         {
             res.statusCode = 400;
             res.write(JSON.stringify({
