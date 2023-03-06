@@ -25,6 +25,15 @@ const server = http.createServer((req, res) => {
     }
     else if(req.url == "/users" || req.url == "/users/")
     {
+        if(req.method == "POST" || req.method == "PUT" || req.method == "DELETE")
+        {
+            res.statusCode = 400;
+            res.write(JSON.stringify({
+                "message": "This method requires an ID."
+            }));
+            res.end();
+        }
+
         if(req.method == "GET")
         {
             //get all users from database
@@ -266,6 +275,15 @@ const server = http.createServer((req, res) => {
     }
     else if(req.url == "/posts" || req.url == "/posts/")
     {
+        if(req.method == "POST" || req.method == "PUT" || req.method == "DELETE")
+        {
+            res.statusCode = 400;
+            res.write(JSON.stringify({
+                "message": "This method requires an ID."
+            }));
+            res.end();
+        }
+
         if(req.method == "POST")
         {
             //create post
